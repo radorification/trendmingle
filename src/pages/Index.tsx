@@ -1,4 +1,3 @@
-
 import { Sidebar } from '@/components/layout/Sidebar';
 import { MetricCard } from '@/components/dashboard/MetricCard';
 import { TrendingTopics } from '@/components/dashboard/TrendingTopics';
@@ -12,14 +11,14 @@ const Index = () => {
     <div className="flex min-h-screen bg-background">
       <Sidebar />
       
-      <div className="flex-1 p-8 overflow-auto max-h-screen">
-        <div className="max-w-7xl mx-auto">
+      <div className="flex-1 p-4 md:p-8 overflow-auto max-h-screen">
+        <div className="max-w-7xl mx-auto pt-10 md:pt-0">
           <div className="flex flex-col gap-2 mb-8">
             <h1 className="text-3xl font-bold">Dashboard</h1>
             <p className="text-gray-400">Welcome back! Here's what's happening with your social media.</p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-6 md:mb-8">
             <MetricCard 
               title="Followers" 
               value="2,345" 
@@ -46,7 +45,7 @@ const Index = () => {
             />
           </div>
           
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6 mb-6 md:mb-8">
             <div className="lg:col-span-2">
               <EngagementChart />
             </div>
@@ -55,7 +54,7 @@ const Index = () => {
             </div>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             <UpcomingPosts />
             <TrendingTopics />
           </div>

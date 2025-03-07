@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Sidebar } from '@/components/layout/Sidebar';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -7,16 +6,17 @@ import { AccountSettings } from '@/components/settings/AccountSettings';
 import { LogOut } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/components/ui/use-toast';
+import { useAuth } from '@/contexts/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const Settings = () => {
   const { toast } = useToast();
+  const { signOut } = useAuth();
+  const navigate = useNavigate();
   
-  const handleLogout = () => {
-    // In a real app, this would clear authentication state
-    toast({
-      title: "Logged out successfully",
-      description: "You have been logged out of your account",
-    });
+  const handleLogout = async () => {
+    await signOut();
+    navigate('/signin');
   };
 
   return (
