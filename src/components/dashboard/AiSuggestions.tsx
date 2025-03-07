@@ -2,6 +2,7 @@
 import { Sparkles, Copy, ArrowRight } from 'lucide-react';
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
+import { useToast } from '@/components/ui/use-toast';
 
 interface SuggestionProps {
   title: string;
@@ -9,7 +10,7 @@ interface SuggestionProps {
   content: string;
 }
 
-const suggestions: SuggestionProps[] = [
+const defaultSuggestions: SuggestionProps[] = [
   {
     title: "Trending Hashtags",
     type: "hashtags",
@@ -27,9 +28,31 @@ const suggestions: SuggestionProps[] = [
   }
 ];
 
+// Alternative suggestions for regenerate functionality
+const alternativeSuggestions: Record<'hashtags' | 'caption' | 'idea', string[]> = {
+  hashtags: [
+    "#CreativeWorkspace #MondayMotivation #RemoteLifestyle #OfficeWithAView #DigitalNomadLife",
+    "#ProductivityHacks #LocationIndependent #WorkAndTravel #WorkspaceGoals #RemoteWorkLife",
+    "#FutureOfWork #WorkFromWherever #FlexibleLifestyle #CoworkingSpace #NomadLife"
+  ],
+  caption: [
+    "Monday blues? Not when your office looks like this! Productivity soars when you love where you work. 🌊💻 #RemoteWorkPerks",
+    "Trading the cubicle for coastlines. Finding inspiration in new surroundings makes all the difference in my creative process. Where are you working from today? 🌴✨",
+    "The best part of remote work? Making anywhere your office. Today's productivity soundtrack: ocean waves. 🌊 What's your ideal work environment?"
+  ],
+  idea: [
+    "Share a day-in-the-life video showing how you balance work and exploration as a digital nomad.",
+    "Create a comparison post of 'Corporate Life vs. Remote Work' with the pros and cons you've experienced.",
+    "Start a weekly series showcasing different remote work setups and locations you've tried."
+  ]
+};
+
 export function AiSuggestions() {
+  const { toast } = useToast();
   const [activeTab, setActiveTab] = useState<'hashtags' | 'caption' | 'idea'>('hashtags');
   const [copied, setCopied] = useState<boolean>(false);
+  const [suggestions, setSuggestions] = useState<SuggestionProps[]>(defaultSuggestions);
+  const [isRegenerating, setIsRegenerating] = useState(false);
   
   const activeSuggestion = suggestions.find(s => s.type === activeTab);
   
@@ -38,7 +61,40 @@ export function AiSuggestions() {
       navigator.clipboard.writeText(activeSuggestion.content);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
+      
+      toast({
+        title: "Copied to clipboard",
+        description: "Content has been copied to your clipboard",
+      });
     }
+  };
+  
+  const handleRegenerate = () => {
+    setIsRegenerating(true);
+    
+    // Simulate API call delay
+    setTimeout(() => {
+      // Get random alternative suggestion for the active tab
+      const alternatives = alternativeSuggestions[activeTab];
+      const randomIndex = Math.floor(Math.random() * alternatives.length);
+      const newContent = alternatives[randomIndex];
+      
+      // Update the suggestions
+      setSuggestions(prev => 
+        prev.map(suggestion => 
+          suggestion.type === activeTab 
+            ? { ...suggestion, content: newContent }
+            : suggestion
+        )
+      );
+      
+      setIsRegenerating(false);
+      
+      toast({
+        title: "Regenerated content",
+        description: `New ${activeTab} suggestion has been generated`,
+      });
+    }, 1000);
   };
   
   return (
@@ -49,9 +105,16 @@ export function AiSuggestions() {
           <h3 className="text-lg font-semibold">AI Suggestions</h3>
         </div>
         
-        <button className="text-xs flex items-center gap-1 text-brand-purple hover:text-brand-purple-light transition-colors">
-          <span>Regenerate</span>
-          <Sparkles size={14} />
+        <button 
+          className={cn(
+            "text-xs flex items-center gap-1 text-brand-purple hover:text-brand-purple-light transition-colors",
+            isRegenerating && "opacity-50 cursor-not-allowed"
+          )}
+          onClick={handleRegenerate}
+          disabled={isRegenerating}
+        >
+          <span>{isRegenerating ? "Regenerating..." : "Regenerate"}</span>
+          <Sparkles size={14} className={isRegenerating ? "animate-pulse" : ""} />
         </button>
       </div>
       

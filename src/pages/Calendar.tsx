@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { Sidebar } from '@/components/layout/Sidebar';
 import { Calendar as CalendarComponent } from '@/components/ui/calendar';
 import { Button } from '@/components/ui/button';
-import { Select } from '@/components/ui/select';
 import { 
   Plus, Calendar as CalendarIcon, Filter, ChevronLeft, ChevronRight, 
   Instagram, Twitter, Linkedin, BarChart2 
@@ -93,47 +92,38 @@ const Calendar = () => {
     }
   };
 
-  // Custom day render for the calendar
-  const renderDay = (day: Date, selectedDay: Date, dayProps: React.HTMLAttributes<HTMLDivElement>) => {
+  // Custom content renderer for each day
+  const renderDayContent = (day: Date) => {
     const dateKey = day.toISOString().split('T')[0];
     const postsForDay = groupedPosts[dateKey] || [];
     
     return (
-      <div
-        {...dayProps}
-        className={cn(
-          dayProps.className,
-          "h-24 relative overflow-hidden",
-          date && day.toDateString() === date.toDateString() && 'bg-brand-purple/20'
-        )}
-      >
-        <div className="absolute inset-1 flex flex-col p-1">
-          <div className="text-right mb-1">
-            {day.getDate()}
-          </div>
+      <div className="h-full flex flex-col">
+        <div className="text-right mb-1">
+          {day.getDate()}
+        </div>
+        
+        <div className="flex-1 overflow-hidden">
+          {postsForDay.slice(0, 3).map((post, i) => (
+            <div 
+              key={post.id}
+              className={cn(
+                "text-xs mb-1 p-1 rounded truncate flex items-center gap-1",
+                post.status === 'posted' && 'bg-green-500/20 text-green-400',
+                post.status === 'scheduled' && 'bg-blue-500/20 text-blue-400',
+                post.status === 'draft' && 'bg-yellow-500/20 text-yellow-400'
+              )}
+            >
+              {getPlatformIcon(post.platform)}
+              {post.title}
+            </div>
+          ))}
           
-          <div className="flex-1 overflow-hidden">
-            {postsForDay.slice(0, 3).map((post, i) => (
-              <div 
-                key={post.id}
-                className={cn(
-                  "text-xs mb-1 p-1 rounded truncate flex items-center gap-1",
-                  post.status === 'posted' && 'bg-green-500/20 text-green-400',
-                  post.status === 'scheduled' && 'bg-blue-500/20 text-blue-400',
-                  post.status === 'draft' && 'bg-yellow-500/20 text-yellow-400'
-                )}
-              >
-                {getPlatformIcon(post.platform)}
-                {post.title}
-              </div>
-            ))}
-            
-            {postsForDay.length > 3 && (
-              <div className="text-xs text-gray-500 px-1">
-                +{postsForDay.length - 3} more
-              </div>
-            )}
-          </div>
+          {postsForDay.length > 3 && (
+            <div className="text-xs text-gray-500 px-1">
+              +{postsForDay.length - 3} more
+            </div>
+          )}
         </div>
       </div>
     );
@@ -219,8 +209,10 @@ const Calendar = () => {
                 mode="single"
                 selected={date}
                 onSelect={setDate}
-                className="w-full"
-                renderDay={renderDay}
+                className="w-full pointer-events-auto"
+                components={{
+                  DayContent: ({ date: dayDate }) => renderDayContent(dayDate),
+                }}
               />
             </div>
           </div>
