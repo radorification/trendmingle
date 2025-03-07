@@ -1,69 +1,87 @@
-# Welcome to your Lovable project
 
-## Project info
+# TrendMingle - AI-Powered Social Media Manager
 
-**URL**: https://lovable.dev/projects/d6ea1911-4e1d-439d-9d2b-7360eac3d875
+TrendMingle is a modern, AI-powered social media management platform designed for creators and marketing teams. It streamlines content scheduling, provides AI-generated suggestions, and offers comprehensive analytics across multiple social media platforms.
 
-## How can I edit this code?
+![TrendMingle Dashboard](https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop)
 
-There are several ways of editing your application.
+## Features
 
-**Use Lovable**
+- **AI-Powered Content Creation**: Generate captions, hashtags, and post ideas tailored to your brand voice
+- **Multi-Platform Support**: Manage Instagram, Twitter, LinkedIn, and TikTok from one dashboard
+- **Smart Scheduling**: Calendar view with AI-suggested optimal posting times
+- **Analytics & Insights**: Track engagement metrics and identify content performance trends
+- **Team Collaboration**: Workflow management with approval processes (coming soon)
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/d6ea1911-4e1d-439d-9d2b-7360eac3d875) and start prompting.
+## Tech Stack
 
-Changes made via Lovable will be committed automatically to this repo.
+- **Frontend**: React with TypeScript
+- **UI Components**: shadcn/ui and Tailwind CSS
+- **Charting**: Recharts
+- **Icons**: Lucide React
 
-**Use your preferred IDE**
+## Screenshots
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Dashboard
+![Dashboard](https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=1200&h=675)
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Content Calendar
+![Content Calendar](https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=1200&h=675)
 
-Follow these steps:
+### Content Creation
+![Content Creation](https://images.unsplash.com/photo-1611162616475-46b635cb6868?auto=format&fit=crop&w=1200&h=675)
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### Settings
+![Settings](https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1200&h=675)
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## Getting Started
 
-# Step 3: Install the necessary dependencies.
-npm i
+### Prerequisites
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+- Node.js 16.0 or later
+- npm or yarn package manager
+
+### Installation
+
+1. Clone the repository
+```bash
+git clone https://github.com/yourusername/trendmingle.git
+cd trendmingle
 ```
 
-**Edit a file directly in GitHub**
+2. Install dependencies
+```bash
+npm install
+# or
+yarn install
+```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+3. Start the development server
+```bash
+npm run dev
+# or
+yarn dev
+```
 
-**Use GitHub Codespaces**
+4. Open your browser and navigate to http://localhost:5173
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Usage
 
-## What technologies are used for this project?
+1. **Connect Your Accounts**: Link your social media accounts in the Settings panel
+2. **Create Content**: Use the Create Content tab to craft posts with AI assistance
+3. **Schedule Posts**: Use the Calendar to plan and schedule your content
+4. **Monitor Performance**: Review metrics and engagement data in the Dashboard
 
-This project is built with .
+## Contributing
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-## How can I deploy this project?
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-Simply open [Lovable](https://lovable.dev/projects/d6ea1911-4e1d-439d-9d2b-7360eac3d875) and click on Share -> Publish.
+## License
 
-## I want to use a custom domain - is that possible?
-
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+This project is licensed under the MIT License - see the LICENSE file for details.
