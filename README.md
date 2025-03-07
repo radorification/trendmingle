@@ -21,16 +21,20 @@ TrendMingle is a modern, AI-powered social media management platform designed fo
 ## Screenshots
 
 ### Dashboard
-![Dashboard](./screenshots/dashboard.png)
+<img width="1449" alt="dash1" src="https://github.com/user-attachments/assets/dcb6492f-78e1-420a-898e-1865f63413bc" />
+<img width="1449" alt="dash2" src="https://github.com/user-attachments/assets/d5e97baa-adcd-47c8-8012-f84086cb63ae" />
+
 
 ### Content Calendar
-![Content Calendar](./screenshots/calendar.png)
+<img width="1449" alt="calendar" src="https://github.com/user-attachments/assets/5b95979f-3c0b-41b6-8b8f-6225c65f0861" />
 
 ### Content Creation
-![Content Creation](./screenshots/create.png)
+<img width="1449" alt="create_content" src="https://github.com/user-attachments/assets/f9617f8e-f98f-452a-a855-bf3574dcd05e" />
+g)
 
 ### Settings
-![Settings](./screenshots/settings.png)
+<img width="1449" alt="settings" src="https://github.com/user-attachments/assets/5c8e559e-32d4-4313-b5d2-397dd73f0de3" />
+
 
 ## Getting Started
 
