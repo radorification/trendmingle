@@ -3,8 +3,6 @@
 
 TrendMingle is a modern, AI-powered social media management platform designed for creators and marketing teams. It streamlines content scheduling, provides AI-generated suggestions, and offers comprehensive analytics across multiple social media platforms.
 
-![TrendMingle Dashboard](https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop)
-
 ## Features
 
 - **AI-Powered Content Creation**: Generate captions, hashtags, and post ideas tailored to your brand voice
@@ -23,16 +21,16 @@ TrendMingle is a modern, AI-powered social media management platform designed fo
 ## Screenshots
 
 ### Dashboard
-![Dashboard](https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=1200&h=675)
+![Dashboard](./screenshots/dashboard.png)
 
 ### Content Calendar
-![Content Calendar](https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=1200&h=675)
+![Content Calendar](./screenshots/calendar.png)
 
 ### Content Creation
-![Content Creation](https://images.unsplash.com/photo-1611162616475-46b635cb6868?auto=format&fit=crop&w=1200&h=675)
+![Content Creation](./screenshots/create.png)
 
 ### Settings
-![Settings](https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1200&h=675)
+![Settings](./screenshots/settings.png)
 
 ## Getting Started
 
